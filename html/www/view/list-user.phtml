@@ -1,0 +1,28 @@
+<?php
+
+namespace soron2;
+
+/**
+ * @var \soron2\UserModel $user
+ */
+
+$userController = new UserController();
+$list = $userController->getAllUser();
+?>
+
+<h1>Listado de usuarios</h1>
+
+<?php if($list) : ?>
+    <table>
+        <?php foreach($list as $user) : ?>
+            <tr>
+                <td><?= $user->name ?></td>
+                <td><?= $user->lastname ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+<?php else : ?>
+    <h3>No existe usuarios guardados</h3>
+<?php endif; ?>
+
+<a href="/user/new">VOLVER</a>
